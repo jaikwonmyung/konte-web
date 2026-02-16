@@ -16,7 +16,7 @@
 
     <main class="main-content">
         <!-- Left Sidebar -->
-        <section class="sidebar">
+        <section class="sidebar" style="position: sticky; top: 40px; height: calc(100vh - 40px);">
             <div class="sidebar-top">
                 <div class="info-grid">
                     <div class="info-item">
@@ -26,13 +26,13 @@
                 </div>
             </div>
 
-            <div class="sidebar-list-area">
+            <div class="sidebar-list-area" id="sidebar-list">
                 <div class="sidebar-header">
                     <div class="col-client">Client</div>
                     <div class="col-project">Project</div>
                 </div>
                 <div class="list-container">
-                    <div class="list-item" onclick="scrollToProject('fn-01')"><div class="col-client">TAMBURINS</div><div class="col-project">카우치 디자인, 제작</div></div>
+                    <div class="list-item" id="link-fn-01" onclick="scrollToProject('fn-01')"><div class="col-client">TAMBURINS</div><div class="col-project">카우치 디자인, 제작</div></div>
                 </div>
             </div>
         </section>
@@ -42,7 +42,18 @@
             <div class="gallery-item" id="fn-01">
                 <div class="gallery-header"><span>TAMBURINS</span><span>카우치 디자인, 제작</span><span></span></div>
                 <div class="gallery-image-container">
-                    <img src="images/object/TAMBURINS/03.jpg" alt="카우치 디자인, 제작">
+                    <img src="images/furniture/fn_01_01.jpg" alt="카우치 디자인, 제작 1">
+                    <img src="images/furniture/fn_01_02.jpg" alt="카우치 디자인, 제작 2">
+                    <img src="images/furniture/fn_01_03.jpg" alt="카우치 디자인, 제작 3">
+                    <img src="images/furniture/fn_01_04.jpg" alt="카우치 디자인, 제작 4">
+                    <img src="images/furniture/fn_01_05.jpg" alt="카우치 디자인, 제작 5">
+                    <img src="images/furniture/fn_01_06.png" alt="카우치 디자인, 제작 6">
+                    <img src="images/furniture/fn_01_07.png" alt="카우치 디자인, 제작 7">
+                    <img src="images/furniture/fn_01_08.png" alt="카우치 디자인, 제작 8">
+                    <img src="images/furniture/fn_01_09.png" alt="카우치 디자인, 제작 9">
+                    <img src="images/furniture/fn_01_10.png" alt="카우치 디자인, 제작 10">
+                    <img src="images/furniture/fn_01_11.png" alt="카우치 디자인, 제작 11">
+                    <img src="images/furniture/fn_01_12.png" alt="카우치 디자인, 제작 12">
                 </div>
             </div>
         </section>
@@ -59,6 +70,33 @@
                 element.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         }
+
+        // Scroll Spy Implementation
+        const observerOptions = {
+            root: null,
+            rootMargin: '-40px 0px -70% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    document.querySelectorAll('.list-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    const activeItem = document.getElementById('link-' + id);
+                    if (activeItem) {
+                        activeItem.classList.add('active');
+                        activeItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            observer.observe(item);
+        });
     </script>
 </body>
 </html>
