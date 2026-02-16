@@ -218,6 +218,7 @@ body {
 .gallery {
     width: 70%;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 .gallery-item {
@@ -230,6 +231,10 @@ body {
     justify-content: space-between;
     padding: 10px 20px;
     border-bottom: 1px solid #eee;
+    background: #fff;
+    position: sticky;
+    top: 40px;
+    z-index: 10;
 }
 
 .gallery-header span {
@@ -242,13 +247,27 @@ body {
     width: 100%;
     padding: 60px 10%;
     background-color: #f9f9f9;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+}
+
+.gallery-image-container::-webkit-scrollbar {
+    height: 4px;
+}
+
+.gallery-image-container::-webkit-scrollbar-thumb {
+    background: #000;
 }
 
 .gallery-image-container img {
+    flex: 0 0 100%;
     width: 100%;
     height: auto;
     display: block;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    scroll-snap-align: start;
 }
 
 /* Footer */
