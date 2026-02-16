@@ -21,5 +21,60 @@
             </ul>
         </nav>
     </div>
+
+    <!-- Admin Login Modal -->
+    <div id="admin-modal" class="admin-modal" style="display:none;">
+        <div class="admin-content">
+            <h2 class="cormorant">Admin Access</h2>
+            <div id="pass-display" class="pass-display">****</div>
+            <div class="keypad">
+                <button onclick="pressKey('1')">1</button>
+                <button onclick="pressKey('2')">2</button>
+                <button onclick="pressKey('3')">3</button>
+                <button onclick="pressKey('4')">4</button>
+                <button onclick="pressKey('5')">5</button>
+                <button onclick="pressKey('6')">6</button>
+                <button onclick="pressKey('7')">7</button>
+                <button onclick="pressKey('8')">8</button>
+                <button onclick="pressKey('9')">9</button>
+                <button onclick="pressKey('C')" class="clear">C</button>
+                <button onclick="pressKey('0')">0</button>
+                <button onclick="pressKey('E')" class="enter">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let inputBuffer = "";
+        let password = "";
+
+        document.addEventListener('keydown', (e) => {
+            inputBuffer += e.key.toLowerCase();
+            if (inputBuffer.includes("rnjs")) {
+                document.getElementById('admin-modal').style.display = 'flex';
+                inputBuffer = "";
+            }
+            if (inputBuffer.length > 10) inputBuffer = inputBuffer.slice(-4);
+        });
+
+        function pressKey(key) {
+            const display = document.getElementById('pass-display');
+            if (key === 'C') {
+                password = "";
+            } else if (key === 'E') {
+                if (password === "0000") {
+                    localStorage.setItem('adminMode', 'true');
+                    alert('Admin Mode Activated');
+                    document.getElementById('admin-modal').style.display = 'none';
+                } else {
+                    alert('Wrong Password');
+                    password = "";
+                }
+            } else {
+                if (password.length < 4) password += key;
+            }
+            display.innerText = "*".repeat(password.length) || "****";
+        }
+    </script>
 </body>
 </html>
