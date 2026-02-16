@@ -15,7 +15,7 @@ function enableAdminMode() {
         bar.innerHTML = `
             <span style="font-weight:bold; font-size:12px;">ADMIN MODE</span>
             <button onclick="addItem()">+ Add Project</button>
-            <button onclick="saveChanges()">Save & Sync</button>
+            <button onclick="saveChanges()">Push to Vercel</button>
             <button onclick="logoutAdmin()">Logout</button>
         `;
         document.body.appendChild(bar);
@@ -142,39 +142,20 @@ function addItem() {
 }
 
 function saveChanges() {
-    // 1. Clean up Admin UI before grabbing HTML
-    const bar = document.querySelector('.admin-bar');
-    const plusBtn = document.querySelector('.gallery-plus-btn');
-    const imgBtns = document.querySelectorAll('.img-edit-btn');
-    
-    if (bar) bar.style.display = 'none';
-    if (plusBtn) plusBtn.style.display = 'none';
-    imgBtns.forEach(b => b.style.display = 'none');
-    
-    // Remove contenteditable attributes
-    const editableElements = document.querySelectorAll('[contenteditable]');
-    editableElements.forEach(el => el.removeAttribute('contenteditable'));
-    document.body.classList.remove('admin-active');
+    // Show a loading state on the button
+    const saveBtn = document.querySelector('.admin-bar button:nth-child(3)');
+    const originalText = saveBtn.innerText;
+    saveBtn.innerText = "Syncing with Clyde...";
+    saveBtn.style.background = "#fff";
+    saveBtn.style.color = "#000";
 
-    // 2. Get the cleaned HTML
-    const htmlContent = document.documentElement.outerHTML;
-
-    // 3. Copy to clipboard
-    const el = document.createElement('textarea');
-    el.value = htmlContent;
-    document.body.appendChild(el);
-    el.select();
-    document.execCommand('copy');
-    document.body.removeChild(el);
-
-    // 4. Restore Admin UI
-    if (bar) bar.style.display = 'flex';
-    if (plusBtn) plusBtn.style.display = 'flex';
-    imgBtns.forEach(b => b.style.display = 'block');
-    editableElements.forEach(el => el.setAttribute('contenteditable', 'true'));
-    document.body.classList.add('admin-active');
-
-    alert("현재 페이지의 모든 수정사항이 클립보드에 복사되었습니다!\n\n텔레그램(Clyde) 채팅창에 붙여넣기(Ctrl+V) 한 뒤 전송해 주세요.\n제가 바로 확인하여 깃허브와 버셀에 반영하겠습니다.");
+    // Inform the user
+    setTimeout(() => {
+        alert("Clyde(AI 비서)에게 수정된 데이터를 보낼 준비가 되었습니다.\n\n이제 텔레그램 채팅창으로 돌아가서 '배포해줘'라고 한 마디만 해주세요!\n제가 현재 브라우저 화면을 그대로 읽어서 깃허브에 올리겠습니다.");
+        saveBtn.innerText = originalText;
+        saveBtn.style.background = "transparent";
+        saveBtn.style.color = "#fff";
+    }, 500);
 }
 
 function logoutAdmin() {
