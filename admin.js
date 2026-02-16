@@ -142,22 +142,39 @@ function addItem() {
 }
 
 function saveChanges() {
-    // Remove Admin Bar and temporary UI before saving
+    // 1. Clean up Admin UI before grabbing HTML
     const bar = document.querySelector('.admin-bar');
-    if (bar) bar.remove();
+    const plusBtn = document.querySelector('.gallery-plus-btn');
+    const imgBtns = document.querySelectorAll('.img-edit-btn');
+    
+    if (bar) bar.style.display = 'none';
+    if (plusBtn) plusBtn.style.display = 'none';
+    imgBtns.forEach(b => b.style.display = 'none');
+    
+    // Remove contenteditable attributes
+    const editableElements = document.querySelectorAll('[contenteditable]');
+    editableElements.forEach(el => el.removeAttribute('contenteditable'));
     document.body.classList.remove('admin-active');
-    document.querySelectorAll('.img-edit-btn').forEach(b => b.remove());
-    document.querySelectorAll('[contenteditable]').forEach(el => el.removeAttribute('contenteditable'));
 
-    const html = document.documentElement.outerHTML;
-    console.log("--- UPDATED HTML START ---");
-    console.log(html);
-    console.log("--- UPDATED HTML END ---");
-    
-    alert("Changes saved to console! Please copy the HTML from the browser console and send it to Clyde, or just tell Clyde 'I have finished editing'.");
-    
-    // Restore Admin UI
-    enableAdminMode();
+    // 2. Get the cleaned HTML
+    const htmlContent = document.documentElement.outerHTML;
+
+    // 3. Copy to clipboard
+    const el = document.createElement('textarea');
+    el.value = htmlContent;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+
+    // 4. Restore Admin UI
+    if (bar) bar.style.display = 'flex';
+    if (plusBtn) plusBtn.style.display = 'flex';
+    imgBtns.forEach(b => b.style.display = 'block');
+    editableElements.forEach(el => el.setAttribute('contenteditable', 'true'));
+    document.body.classList.add('admin-active');
+
+    alert("현재 페이지의 모든 수정사항이 클립보드에 복사되었습니다!\n\n텔레그램(Clyde) 채팅창에 붙여넣기(Ctrl+V) 한 뒤 전송해 주세요.\n제가 바로 확인하여 깃허브와 버셀에 반영하겠습니다.");
 }
 
 function logoutAdmin() {

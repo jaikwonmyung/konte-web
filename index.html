@@ -20,7 +20,10 @@
                 <li><a href="contact.html">Contact Us</a></li>
             </ul>
         </nav>
-        <button id="admin-logout-btn" class="admin-logout-btn" style="display:none;" onclick="logoutAdmin()">Admin Logout</button>
+        <div id="admin-controls" style="display:none; margin-top: 30px;">
+            <button class="admin-logout-btn" onclick="logoutAdmin()" style="margin-top:0; margin-right:10px;">Admin Logout</button>
+            <button class="admin-save-btn" onclick="saveAll()" style="margin-top:0;">Save All & Sync</button>
+        </div>
     </div>
 
     <!-- Admin Login Modal -->
@@ -50,11 +53,11 @@
         let password = "";
 
         function checkAdminStatus() {
-            const logoutBtn = document.getElementById('admin-logout-btn');
+            const adminControls = document.getElementById('admin-controls');
             if (localStorage.getItem('adminMode') === 'true') {
-                logoutBtn.style.display = 'inline-block';
+                adminControls.style.display = 'block';
             } else {
-                logoutBtn.style.display = 'none';
+                adminControls.style.display = 'none';
             }
         }
 
@@ -93,6 +96,10 @@
             localStorage.removeItem('adminMode');
             alert('Admin Mode Deactivated');
             location.reload();
+        }
+
+        function saveAll() {
+            alert("전체 사이트 저장 기능은 각 페이지(Object, Furniture 등)에서 수정한 뒤 'Save & Sync' 버튼을 눌러 코드를 Clyde에게 전달하는 방식으로 작동합니다.\n\n각 상세 페이지에서 수정을 완료해 주세요!");
         }
     </script>
 </body>

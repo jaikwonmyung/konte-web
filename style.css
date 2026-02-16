@@ -404,6 +404,21 @@ body {
     opacity: 1;
 }
 
+.admin-save-btn {
+    background: #000;
+    border: 1px solid #000;
+    color: #fff;
+    padding: 8px 15px;
+    font-family: 'Cormorant', serif;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.admin-save-btn:hover {
+    background: #444;
+}
+
 /* Admin Floating Bar */
 .admin-bar {
     position: fixed;
