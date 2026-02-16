@@ -201,15 +201,27 @@ body {
     cursor: pointer;
     font-size: 12px;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    transition: background 0.2s;
+    transition: all 0.3s ease;
+    opacity: 0.4; /* 기본 상태 투명도 조절 */
 }
 
-.list-item:hover {
-    background-color: #f9f9f9;
+.list-item:hover, .list-item.active {
+    opacity: 1;
+    background-color: #f0f0f0;
+    padding-left: 5px;
 }
 
+.list-item.active {
+    font-weight: bold;
+    border-left: 2px solid #000;
+}
 
-/* Right Content (Gallery View) */
+.sidebar-list-area {
+    padding: 20px;
+    overflow-y: auto;
+    max-height: calc(100vh - 200px); /* 스크롤 가능 영역 제한 */
+}
+
 .gallery {
     width: 70%;
     padding: 0;
