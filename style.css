@@ -118,26 +118,20 @@ body {
 
 .header .center {
     flex: 2;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.header .right {
+    text-align: right;
 }
 
 .header a {
     text-decoration: none;
     color: inherit;
     font-family: 'Cormorant', serif;
-    font-weight: bold;
-}
-
-.header > div {
-    flex: 1;
-}
-
-.header .center {
-    flex: 2;
-}
-
-.header a {
-    text-decoration: none;
-    color: inherit;
 }
 
 /* Main Layout */
@@ -151,7 +145,7 @@ body {
 .sidebar {
     width: 30%;
     border-right: 1px solid #000;
-    padding: 0; /* 패딩 제거 후 내부 요소에서 조절 */
+    padding: 0;
     display: flex;
     flex-direction: column;
 }
@@ -181,6 +175,7 @@ body {
     font-size: 12px;
     line-height: 1.5;
     color: #666;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 .sidebar-list-area {
@@ -197,20 +192,20 @@ body {
 }
 
 .col-client { width: 30%; }
-.col-project { width: 50%; }
-.col-year { width: 20%; text-align: right; }
+.col-project { width: 70%; }
 
 .list-item {
     display: flex;
-    padding: 6px 0;
+    padding: 10px 0;
     border-bottom: 1px dotted #ccc;
     cursor: pointer;
     font-size: 12px;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif; /* 리스트는 가독성을 위해 샌즈세리프 */
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    transition: background 0.2s;
 }
 
 .list-item:hover {
-    background-color: #f0f0f0;
+    background-color: #f9f9f9;
 }
 
 
@@ -219,22 +214,25 @@ body {
     width: 70%;
     padding: 0;
     scroll-behavior: smooth;
+    background-color: #f9f9f9;
 }
 
 .gallery-item {
     width: 100%;
     border-bottom: 1px solid #000;
+    background-color: #fff;
 }
 
 .gallery-header {
     display: flex;
     justify-content: space-between;
-    padding: 10px 20px;
+    padding: 12px 20px;
     border-bottom: 1px solid #eee;
     background: #fff;
     position: sticky;
     top: 40px;
     z-index: 10;
+    font-size: 12px;
 }
 
 .gallery-header span {
@@ -245,29 +243,33 @@ body {
 
 .gallery-image-container {
     width: 100%;
-    padding: 60px 10%;
+    padding: 80px 10%;
     background-color: #f9f9f9;
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    gap: 20px;
+    gap: 40px;
+    align-items: center;
 }
 
+/* Hide scrollbar but keep functionality */
 .gallery-image-container::-webkit-scrollbar {
-    height: 4px;
+    display: none;
 }
-
-.gallery-image-container::-webkit-scrollbar-thumb {
-    background: #000;
+.gallery-image-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .gallery-image-container img {
     flex: 0 0 100%;
     width: 100%;
     height: auto;
+    max-height: 75vh;
+    object-fit: contain; /* 원본 비례 유지 핵심 */
     display: block;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    scroll-snap-align: start;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    scroll-snap-align: center;
 }
 
 /* Footer */
@@ -292,7 +294,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #f9f9f8; /* 약간 더 부드러운 배경색 */
+    background-color: #f9f9f8;
 }
 
 .contact-container {
@@ -352,5 +354,9 @@ body {
     }
     .footer {
         width: 100%;
+        position: relative;
+    }
+    .gallery-image-container {
+        padding: 40px 5%;
     }
 }
