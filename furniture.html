@@ -5,24 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Furniture - Konte Studio</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body class="archive-page">
     <header class="header">
         <div class="left"><a href="index.html" class="logo-text">Konte Studio</a></div>
-        <div class="center">Information</div>
-        <div class="right" style="text-align: right;">CV</div>
+        <div class="center">Furniture</div>
+        <div class="right"><a href="contact.html">Contact Us</a></div>
     </header>
 
     <main class="main-content">
+        <!-- Left Sidebar -->
         <section class="sidebar">
             <div class="sidebar-top">
                 <div class="info-grid">
                     <div class="info-item">
-                        <span class="info-label">Information</span>
-                        <p class="info-text">Furniture collection by Konte Studio. Exploring the intersection of form, function, and spatial context in minimalist design.</p>
-                    </div>
-                    <div class="info-item" style="max-width: 100px;">
-                        <span class="info-label">CV</span>
+                        <span class="info-label">Furniture</span>
+                        <p class="info-text">콘테스튜디오에서 제작한 가구 포트폴리오입니다</p>
                     </div>
                 </div>
             </div>
@@ -31,34 +30,35 @@
                 <div class="sidebar-header">
                     <div class="col-client">Client</div>
                     <div class="col-project">Project</div>
-                    <div class="col-year">Year</div>
                 </div>
                 <div class="list-container">
-                    <div class="list-item"><div class="col-client">KONTE</div><div class="col-project">Minimal Chair 01</div><div class="col-year">2026</div></div>
-                    <div class="list-item"><div class="col-client">KONTE</div><div class="col-project">Spatial Unit V2</div><div class="col-year">2025</div></div>
-                    <!-- ... placeholder entries to match the look ... -->
-                    <div class="list-item"><div class="col-client">SED_DO</div><div class="col-project">Ref. R/PRT-017</div><div class="col-year">2048-9</div></div>
-                    <div class="list-item"><div class="col-client">SED_DO</div><div class="col-project">R/CXX-500</div><div class="col-year">2047</div></div>
+                    <div class="list-item" onclick="scrollToProject('fn-01')"><div class="col-client">TAMBURINS</div><div class="col-project">카우치 디자인, 제작</div></div>
                 </div>
             </div>
         </section>
 
-        <section class="gallery">
-            <div class="gallery-item">
-                <div class="gallery-header">
-                    <span>KONTE</span>
-                    <span>Minimal Chair 01</span>
-                    <span>2026</span>
-                </div>
+        <!-- Right Content: Gallery View -->
+        <section class="gallery" id="gallery-root">
+            <div class="gallery-item" id="fn-01">
+                <div class="gallery-header"><span>TAMBURINS</span><span>카우치 디자인, 제작</span><span></span></div>
                 <div class="gallery-image-container">
-                    <img src="https://images.unsplash.com/photo-1534073733301-f99a91159b96?auto=format&fit=crop&w=1200&q=80" alt="Furniture 1">
+                    <img src="images/object/TAMBURINS/03.jpg" alt="카우치 디자인, 제작">
                 </div>
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        19:52:16 | IG, Email
+        2026.02.16 | IG, Email
     </footer>
+
+    <script>
+        function scrollToProject(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    </script>
 </body>
 </html>
