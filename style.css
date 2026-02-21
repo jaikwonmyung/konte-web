@@ -38,6 +38,7 @@ body {
     color: #000;
     font-size: 14px;
     line-height: 1.4;
+    overflow-x: hidden; /* 가로 스크롤 방지로 모바일 안정성 확보 */
 }
 
 /* Home Page Specific */
@@ -438,6 +439,18 @@ body {
     .list-item {
         padding: 12px 0;
         border-bottom: 0.5px solid rgba(0,0,0,0.05);
+        opacity: 1; /* 모바일에서는 가독성을 위해 투명도 고정 */
+    }
+
+    .list-item:hover, .list-item.active {
+        background-color: transparent; /* 배경색 변화로 인한 깜빡임 방지 */
+        padding-left: 0;
+    }
+
+    .list-item.active {
+        font-weight: bold;
+        border-left: none; /* 레이아웃 시프트를 유발하는 보더 제거 */
+        color: #000;
     }
 
     .gallery {
@@ -483,10 +496,12 @@ body {
         padding: 0;
         gap: 10px;
         background-color: #fff;
+        min-height: 300px; /* 로딩 전 최소 높이 확보로 점핑 방지 */
     }
 
     .gallery-image-container img {
         max-height: 50vh;
+        min-height: 200px; /* 이미지 개별 최소 높이 확보 */
         box-shadow: none;
         border-radius: 0;
     }

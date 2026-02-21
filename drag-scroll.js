@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // 모바일 기기(터치 사용)가 아닌 경우에만 마우스 드래그 스크롤 활성화
+    if (window.innerWidth <= 768 || ('ontouchstart' in window) || (navigator.maxTouchPoints > 0)) {
+        return;
+    }
+
     const sliders = document.querySelectorAll('.gallery-image-container');
     
     sliders.forEach(slider => {
@@ -11,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
             slider.classList.add('active');
             startX = e.pageX - slider.offsetLeft;
             scrollLeft = slider.scrollLeft;
-            // Disable snap during drag for smoother experience
             slider.style.scrollSnapType = 'none';
         });
 
@@ -29,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!isDown) return;
             e.preventDefault();
             const x = e.pageX - slider.offsetLeft;
-            const walk = (x - startX) * 2; // 스크롤 속도 배율
+            const walk = (x - startX) * 2;
             slider.scrollLeft = scrollLeft - walk;
         });
     });

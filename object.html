@@ -172,8 +172,8 @@
         // Scroll Spy Implementation
         const observerOptions = {
             root: null,
-            rootMargin: '-40px 0px -70% 0px',
-            threshold: 0
+            rootMargin: '-10% 0px -40% 0px', // 감지 범위를 보다 안정적으로 조정
+            threshold: 0.1 // 10% 정도 보일 때 감지
         };
 
         const observer = new IntersectionObserver((entries) => {
