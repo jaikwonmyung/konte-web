@@ -363,20 +363,89 @@ body {
     opacity: 0.5;
 }
 
-/* Mobile */
-@media (max-width: 1024px) {
-    .main-content {
-        flex-direction: column;
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    body {
+        font-size: 13px;
     }
-    .sidebar, .gallery {
+
+    .header {
+        height: 50px;
+        padding: 0 15px;
+    }
+
+    .header .center {
+        font-size: 14px;
+        letter-spacing: 0.05em;
+    }
+
+    .main-content {
+        margin-top: 50px;
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .sidebar {
         width: 100%;
         border-right: none;
+        border-bottom: 1px solid #000;
+        height: auto;
     }
+
+    .sidebar-top {
+        padding: 15px;
+    }
+
+    .info-grid {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .sidebar-list-area {
+        padding: 15px;
+        max-height: 300px; /* 모바일에서는 리스트 영역 축소 */
+    }
+
+    .gallery {
+        width: 100%;
+        min-height: 50vh;
+    }
+
+    .gallery-header {
+        top: 50px;
+        padding: 10px 15px;
+    }
+
+    .gallery-image-container {
+        padding: 30px 5%;
+        gap: 20px;
+    }
+
+    .gallery-image-container img {
+        max-height: 60vh;
+    }
+
     .footer {
         width: 100%;
-        position: relative;
+        position: static;
+        height: 40px;
+        padding: 0 15px;
+        justify-content: center;
     }
-    .gallery-image-container {
-        padding: 40px 5%;
+
+    /* Home Page Mobile */
+    .main-menu a {
+        font-size: 1.8rem;
+    }
+
+    .num {
+        font-size: 0.9rem;
+        margin-right: 1rem;
+    }
+
+    /* Contact Page Mobile */
+    .contact-info, .social-list a {
+        font-size: 1.5rem;
     }
 }
+
