@@ -88,7 +88,10 @@
                     const activeItem = document.getElementById('link-' + id);
                     if (activeItem) {
                         activeItem.classList.add('active');
-                        activeItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        // PC 환경에서만 사이드바 자동 스크롤 적용 (모바일 점핑 방지)
+                        if (window.innerWidth > 768) {
+                            activeItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        }
                     }
                 }
             });
