@@ -369,88 +369,161 @@ body {
 /* Mobile Optimization */
 @media (max-width: 768px) {
     body {
-        font-size: 13px;
-    }
-
-    .header {
-        height: 50px;
-        padding: 0 15px;
-    }
-
-    .header .center {
         font-size: 14px;
+        letter-spacing: -0.01em;
+    }
+
+    /* Modernized Mobile Header */
+    .header {
+        height: 60px;
+        padding: 0 20px;
+        border-bottom: 0.5px solid rgba(0,0,0,0.1);
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.8);
+    }
+
+    .header .logo-text {
+        font-size: 18px;
+        font-weight: 500;
         letter-spacing: 0.05em;
     }
 
+    .header .center {
+        display: none;
+    }
+
     .main-content {
-        margin-top: 50px;
+        margin-top: 60px;
         flex-direction: column;
-        min-height: auto;
     }
 
     .sidebar {
         width: 100%;
-        border-right: none;
-        border-bottom: 1px solid #000;
-        height: auto;
         position: relative;
         top: 0;
+        height: auto;
+        border-right: none;
+        border-bottom: 0.5px solid rgba(0,0,0,0.1);
+        background: #fff;
     }
 
     .sidebar-top {
-        padding: 15px;
+        padding: 20px;
+        text-align: center;
     }
 
     .info-grid {
         flex-direction: column;
-        gap: 15px;
+        gap: 10px;
+    }
+
+    .info-label {
+        font-size: 11px;
+        text-transform: uppercase;
+        color: #888;
+        margin-bottom: 5px;
+    }
+
+    .info-text {
+        font-size: 13px;
+        color: #000;
     }
 
     .sidebar-list-area {
-        padding: 15px;
-        max-height: 300px; /* 모바일에서는 리스트 영역 축소 */
+        padding: 0 20px 20px 20px;
+        max-height: 200px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .list-item {
+        padding: 12px 0;
+        border-bottom: 0.5px solid rgba(0,0,0,0.05);
     }
 
     .gallery {
         width: 100%;
-        min-height: 50vh;
+        background-color: #fff;
+    }
+
+    .gallery-item {
+        margin-bottom: 40px;
+        border-bottom: none;
     }
 
     .gallery-header {
-        top: 50px;
-        padding: 10px 15px;
+        position: relative;
+        top: 0;
+        padding: 20px;
+        background: #fff;
+        border-bottom: none;
+        display: block; 
+    }
+
+    .gallery-header span:first-child {
+        display: block;
+        font-size: 10px;
+        color: #888;
+        margin-bottom: 5px;
+        font-weight: normal;
+    }
+
+    .gallery-header span:nth-child(2) {
+        display: block;
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 0;
+        text-transform: none;
+    }
+
+    .gallery-header span:nth-child(3) {
+        display: none;
     }
 
     .gallery-image-container {
-        padding: 30px 5%;
-        gap: 20px;
+        padding: 0;
+        gap: 10px;
+        background-color: #fff;
     }
 
     .gallery-image-container img {
-        max-height: 60vh;
+        max-height: 50vh;
+        box-shadow: none;
+        border-radius: 0;
     }
 
     .footer {
         width: 100%;
-        position: static;
-        height: 40px;
-        padding: 0 15px;
+        position: relative;
+        height: 100px;
+        background: #fff;
+        border-top: 0.5px solid rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        padding: 20px;
+    }
+
+    .home-body .emblem {
+        top: 60px;
+    }
+
+    .main-menu li {
+        margin: 15px 0;
+    }
+
+    .main-menu a {
+        font-size: 2.2rem;
         justify-content: center;
     }
 
-    /* Home Page Mobile */
-    .main-menu a {
+    .num {
+        font-size: 1rem;
+        margin-right: 1.2rem;
+    }
+
+    .contact-info, .social-list a {
         font-size: 1.8rem;
     }
-
-    .num {
-        font-size: 0.9rem;
-        margin-right: 1rem;
-    }
-
-    /* Contact Page Mobile */
-    .contact-info, .social-list a {
-        font-size: 1.5rem;
-    }
 }
-
