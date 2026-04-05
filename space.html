@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Object - Konte Studio</title>
+    <title>Space - Konte Studio</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
     <script src="drag-scroll.js"></script>
@@ -11,7 +11,7 @@
 <body class="archive-page">
     <header class="header">
         <div class="left"><a href="index.html" class="logo-text">Konte Studio</a></div>
-        <div class="center">Object</div>
+        <div class="center">Space</div>
         <div class="right"><a href="contact.html">Contact Us</a></div>
     </header>
 
@@ -21,8 +21,12 @@
             <div class="sidebar-top">
                 <div class="info-grid">
                     <div class="info-item">
-                        <span class="info-label">Object</span>
-                        <p class="info-text">콘테스튜디오에서 제작한 오브제 포트폴리오입니다</p>
+                        <span class="info-label">Space</span>
+                        <div class="category-tabs" style="margin-top: 10px; font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; display: flex; gap: 15px;">
+                            <span class="cat-tab active" data-cat="space" style="cursor: pointer; font-weight: bold; border-bottom: 2px solid #000; padding-bottom: 2px;">Space</span>
+                            <span class="cat-tab" data-cat="object" style="cursor: pointer; color: #888; font-weight: normal; border-bottom: none; padding-bottom: 2px;">Object</span>
+                        </div>
+                        <p class="info-text" style="margin-top: 15px;">콘테스튜디오에서 기획한 스페이스 및 오브제 포트폴리오입니다</p>
                     </div>
                 </div>
             </div>
@@ -198,6 +202,41 @@
 
         document.querySelectorAll('.gallery-item').forEach(item => {
             observer.observe(item);
+        });
+
+        // Category Filter Implementation
+        const catTabs = document.querySelectorAll('.cat-tab');
+        const listItems = document.querySelectorAll('.list-item');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        catTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const cat = tab.getAttribute('data-cat');
+                
+                // Update Tab styles
+                catTabs.forEach(t => {
+                    t.classList.remove('active');
+                    t.style.fontWeight = 'normal';
+                    t.style.color = '#888';
+                    t.style.borderBottom = 'none';
+                });
+                tab.classList.add('active');
+                tab.style.fontWeight = 'bold';
+                tab.style.color = '#000';
+                tab.style.borderBottom = '2px solid #000';
+
+                // Filter items (all current items are 'space')
+                listItems.forEach(item => {
+                    item.style.display = (cat === 'space') ? 'flex' : 'none';
+                });
+                galleryItems.forEach(item => {
+                    item.style.display = (cat === 'space') ? 'block' : 'none';
+                });
+                
+                // Scroll to top of list and gallery when changing category
+                document.getElementById('sidebar-list').scrollTop = 0;
+                window.scrollTo(0, 0);
+            });
         });
     </script>
 </body>
