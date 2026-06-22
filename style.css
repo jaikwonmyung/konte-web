@@ -32,6 +32,43 @@
     box-sizing: border-box;
 }
 
+/* ---------- Custom semi-transparent cursor (desktop only) ---------- */
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.28);
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate3d(-100px, -100px, 0);
+    will-change: transform;
+    /* Only animate cheap, compositor-friendly properties so the cursor never lags. */
+    transition: width 0.22s ease, height 0.22s ease, background-color 0.22s ease, opacity 0.22s ease;
+}
+
+.custom-cursor.hover {
+    width: 42px;
+    height: 42px;
+    margin: -9px 0 0 -9px; /* keep the larger circle centred on the pointer */
+    background-color: rgba(0, 0, 0, 0.14);
+}
+
+.custom-cursor.hidden {
+    opacity: 0;
+}
+
+/* Hide the native cursor only when our custom one is active on a real-pointer device. */
+@media (hover: hover) and (pointer: fine) {
+    html.has-custom-cursor,
+    html.has-custom-cursor * {
+        cursor: none !important;
+    }
+}
+
 body {
     background-color: #FFFFFF;
     font-family: 'Cormorant', serif;

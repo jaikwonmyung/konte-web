@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Space - Konte Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
-    <script src="drag-scroll.js"></script>
+    <script src="drag-scroll.js" defer></script>
+    <script src="enhance.js" defer></script>
 </head>
 <body class="archive-page">
     <header class="header">
         <div class="left"><a href="index.html" class="logo-text">Konte Studio</a></div>
-        <div class="center">Space</div>
+        <div class="center">Projects</div>
         <div class="right"><a href="contact.html">Contact Us</a></div>
     </header>
 
@@ -21,12 +24,7 @@
             <div class="sidebar-top">
                 <div class="info-grid">
                     <div class="info-item">
-                        <span class="info-label">Space</span>
-                        <div class="category-tabs" style="margin-top: 10px; font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; display: flex; gap: 15px;">
-                            <span class="cat-tab active" data-cat="space" style="cursor: pointer; font-weight: bold; border-bottom: 2px solid #000; padding-bottom: 2px;">Space</span>
-                            <span class="cat-tab" data-cat="object" style="cursor: pointer; color: #888; font-weight: normal; border-bottom: none; padding-bottom: 2px;">Object</span>
-                        </div>
-                        <p class="info-text" style="margin-top: 15px;">콘테스튜디오에서 기획한 스페이스 및 오브제 포트폴리오입니다</p>
+                        <span class="info-label">Projects</span>
                     </div>
                 </div>
             </div>
@@ -37,125 +35,211 @@
                     <div class="col-project">Project</div>
                 </div>
                 <div class="list-container">
-                    <!-- GENTLE MONSTER / SONC Section -->
-                    <div class="list-item" id="link-gm-01" onclick="scrollToProject('gm-01')"><div class="col-client">SONC</div><div class="col-project">행잉오브제제작</div></div>
-                    <div class="list-item" id="link-gm-03" onclick="scrollToProject('gm-03')"><div class="col-client">GENTLE MONSTER</div><div class="col-project">대형 오브제제작</div></div>
-                    <div class="list-item" id="link-gm-07" onclick="scrollToProject('gm-07')"><div class="col-client">GENTLE MONSTER</div><div class="col-project">아일랜드집기 제작</div></div>
-                    <div class="list-item" id="link-gm-08" onclick="scrollToProject('gm-08')"><div class="col-client">GENTLE MONSTER</div><div class="col-project">오브제 존 제작</div></div>
-                    <div class="list-item" id="link-gm-10" onclick="scrollToProject('gm-10')"><div class="col-client">GENTLE MONSTER</div><div class="col-project">펜스 제작</div></div>
-                    <div class="list-item" id="link-gm-13" onclick="scrollToProject('gm-13')"><div class="col-client">GENTLE MONSTER</div><div class="col-project">주얼리 커튼 제작</div></div>
-                    
-                    <!-- TAMBURINS Section -->
-                    <div class="list-item" id="link-proj-01" onclick="scrollToProject('proj-01')"><div class="col-client">TAMBURINS</div><div class="col-project">스피커 집기제작</div></div>
-                    <div class="list-item" id="link-proj-02" onclick="scrollToProject('proj-02')"><div class="col-client">TAMBURINS</div><div class="col-project">집기제작</div></div>
-                    <div class="list-item" id="link-proj-05" onclick="scrollToProject('proj-05')"><div class="col-client">TAMBURINS</div><div class="col-project">대형 패브릭오브제 제작</div></div>
-                    <div class="list-item" id="link-proj-11" onclick="scrollToProject('proj-11')"><div class="col-client">TAMBURINS</div><div class="col-project">패브릭 오브제 제작</div></div>
-                    <div class="list-item" id="link-proj-06" onclick="scrollToProject('proj-06')"><div class="col-client">TAMBURINS</div><div class="col-project">대형 오브제제작</div></div>
-                    <div class="list-item" id="link-proj-08" onclick="scrollToProject('proj-08')"><div class="col-client">TAMBURINS</div><div class="col-project">오브제소품 제작</div></div>
-                    <div class="list-item" id="link-proj-12" onclick="scrollToProject('proj-12')"><div class="col-client">TAMBURINS</div><div class="col-project">모래 오브제 제작</div></div>
-                    <div class="list-item" id="link-proj-14" onclick="scrollToProject('proj-14')"><div class="col-client">TAMBURINS</div><div class="col-project">콘크리트오브제조형물 제작</div></div>
-                    <div class="list-item" id="link-proj-17" onclick="scrollToProject('proj-17')"><div class="col-client">TAMBURINS</div><div class="col-project">라탄 오브제 제작</div></div>
-                    <div class="list-item" id="link-proj-18" onclick="scrollToProject('proj-18')"><div class="col-client">TAMBURINS</div><div class="col-project">백화점오브제 메인집기 제작</div></div>
+                    <div class="list-item" id="link-p01" onclick="scrollToProject('p01')"><div class="col-client">Verish</div><div class="col-project">종이 오브제 제작</div></div>
+                    <div class="list-item" id="link-p02" onclick="scrollToProject('p02')"><div class="col-client">Verish</div><div class="col-project">포토부스 제작</div></div>
+                    <div class="list-item" id="link-p02b" onclick="scrollToProject('p02b')"><div class="col-client">Verish</div><div class="col-project">포토부스 제작</div></div>
+                    <div class="list-item" id="link-p03" onclick="scrollToProject('p03')"><div class="col-client">Verish</div><div class="col-project">패브릭 월 제작</div></div>
+                    <div class="list-item" id="link-p04" onclick="scrollToProject('p04')"><div class="col-client">Verish</div><div class="col-project">조경 디자인</div></div>
+                    <div class="list-item" id="link-p05" onclick="scrollToProject('p05')"><div class="col-client">Verish</div><div class="col-project">오브제 디자인 제작 (말)</div></div>
+                    <div class="list-item" id="link-p06" onclick="scrollToProject('p06')"><div class="col-client">Verish</div><div class="col-project">브리지원 챔피원쉽 기획 디자인 설계 제작</div></div>
+                    <div class="list-item" id="link-p07" onclick="scrollToProject('p07')"><div class="col-client">Verish</div><div class="col-project">몽골몽골 놀이터 기획 디자인 설계 제작</div></div>
+                    <div class="list-item" id="link-p08" onclick="scrollToProject('p08')"><div class="col-client">Verish</div><div class="col-project">트랙볼 제작</div></div>
+                    <div class="list-item" id="link-p09" onclick="scrollToProject('p09')"><div class="col-client">Verish</div><div class="col-project">패브릭 포토 월 제작</div></div>
+                    <div class="list-item" id="link-p10" onclick="scrollToProject('p10')"><div class="col-client">Verish</div><div class="col-project">피규어 의류제작</div></div>
+                    <div class="list-item" id="link-p11" onclick="scrollToProject('p11')"><div class="col-client">Verish</div><div class="col-project">피규어 의류제작</div></div>
+                    <div class="list-item" id="link-p12" onclick="scrollToProject('p12')"><div class="col-client">Verish</div><div class="col-project">대형 피규어 의류제작</div></div>
                 </div>
             </div>
         </section>
 
         <!-- Right Content: Gallery View -->
         <section class="gallery" id="gallery-root">
-            <div class="gallery-item" id="gm-01">
-                <div class="gallery-header"><span>SONC</span><span>행잉오브제제작</span><span></span></div>
+            <div class="gallery-item" id="p01">
+                <div class="gallery-header"><span>Verish</span><span>종이 오브제 제작</span><span></span></div>
                 <div class="gallery-image-container">
-                    <img loading="lazy" src="images/object/GENTLE MONSTER/gm_01.png" alt="행잉오브제제작 1">
-                    <img loading="lazy" src="images/object/GENTLE MONSTER/gm_02.png" alt="행잉오브제제작 2">
+                    <img loading="lazy" decoding="async" src="images/projects/p01-sonc-paper/01.jpg" alt="종이 오브제 제작 1">
+                    <img loading="lazy" decoding="async" src="images/projects/p01-sonc-paper/02.jpg" alt="종이 오브제 제작 2">
+                    <img loading="lazy" decoding="async" src="images/projects/p01-sonc-paper/03.jpg" alt="종이 오브제 제작 3">
+                    <img loading="lazy" decoding="async" src="images/projects/p01-sonc-paper/04.jpg" alt="종이 오브제 제작 4">
+                    <img loading="lazy" decoding="async" src="images/projects/p01-sonc-paper/05.jpg" alt="종이 오브제 제작 5">
+                    <img loading="lazy" decoding="async" src="images/projects/p01-sonc-paper/06.jpg" alt="종이 오브제 제작 6">
+                    <img loading="lazy" decoding="async" src="images/projects/p01-sonc-paper/07.jpg" alt="종이 오브제 제작 7">
                 </div>
             </div>
-            <div class="gallery-item" id="gm-03">
-                <div class="gallery-header"><span>GENTLE MONSTER</span><span>대형 오브제제작</span><span></span></div>
+            <div class="gallery-item" id="p02">
+                <div class="gallery-header"><span>Verish</span><span>포토부스 제작</span><span></span></div>
                 <div class="gallery-image-container">
-                    <img loading="lazy" src="images/object/GENTLE MONSTER/gm_03.png" alt="대형 오브제제작 1">
-                    <img loading="lazy" src="images/object/GENTLE MONSTER/gm_04.png" alt="대형 오브제제작 2">
-                    <img loading="lazy" src="images/object/GENTLE MONSTER/gm_05.png" alt="대형 오브제제작 3">
-                    <img loading="lazy" src="images/object/GENTLE MONSTER/gm_06.png" alt="대형 오브제제작 4">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/01.jpg" alt="포토부스 제작 1">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/02.jpg" alt="포토부스 제작 2">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/03.jpg" alt="포토부스 제작 3">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/04.jpg" alt="포토부스 제작 4">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/05.jpg" alt="포토부스 제작 5">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/06.jpg" alt="포토부스 제작 6">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/07.jpg" alt="포토부스 제작 7">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/08.jpg" alt="포토부스 제작 8">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/09.jpg" alt="포토부스 제작 9">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/10.png" alt="포토부스 제작 10">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/11.jpg" alt="포토부스 제작 11">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/12.jpg" alt="포토부스 제작 12">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/13.jpg" alt="포토부스 제작 13">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/14.jpg" alt="포토부스 제작 14">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/15.jpg" alt="포토부스 제작 15">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/16.jpg" alt="포토부스 제작 16">
                 </div>
             </div>
-            <div class="gallery-item" id="gm-07">
-                <div class="gallery-header"><span>GENTLE MONSTER</span><span>아일랜드집기 제작</span><span></span></div>
-                <div class="gallery-image-container"><img loading="lazy" src="images/object/GENTLE MONSTER/gm_07.png" alt="아일랜드집기 제작"></div>
-            </div>
-            <div class="gallery-item" id="gm-08">
-                <div class="gallery-header"><span>GENTLE MONSTER</span><span>오브제 존 제작</span><span></span></div>
+            <div class="gallery-item" id="p02b">
+                <div class="gallery-header"><span>Verish</span><span>포토부스 제작</span><span></span></div>
                 <div class="gallery-image-container">
-                    <img loading="lazy" src="images/object/GENTLE MONSTER/gm_08.png" alt="오브제 존 제작 1">
-                    <img loading="lazy" src="images/object/GENTLE MONSTER/gm_09.png" alt="오브제 존 제작 2">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/01.jpg" alt="포토부스 제작 1">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/02.jpg" alt="포토부스 제작 2">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/03.jpg" alt="포토부스 제작 3">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/04.jpg" alt="포토부스 제작 4">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/05.jpg" alt="포토부스 제작 5">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/06.jpg" alt="포토부스 제작 6">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/07.jpg" alt="포토부스 제작 7">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/08.jpg" alt="포토부스 제작 8">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/09.jpg" alt="포토부스 제작 9">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/10.png" alt="포토부스 제작 10">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/11.jpg" alt="포토부스 제작 11">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/12.jpg" alt="포토부스 제작 12">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/13.jpg" alt="포토부스 제작 13">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/14.jpg" alt="포토부스 제작 14">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/15.jpg" alt="포토부스 제작 15">
+                    <img loading="lazy" decoding="async" src="images/projects/p02-verish-photobooth/16.jpg" alt="포토부스 제작 16">
                 </div>
             </div>
-            <div class="gallery-item" id="gm-10">
-                <div class="gallery-header"><span>GENTLE MONSTER</span><span>펜스 제작</span><span></span></div>
+            <div class="gallery-item" id="p03">
+                <div class="gallery-header"><span>Verish</span><span>패브릭 월 제작</span><span></span></div>
                 <div class="gallery-image-container">
-                    <img loading="lazy" src="images/object/GENTLE MONSTER/gm_10.png" alt="펜스 제작 1">
-                    <img loading="lazy" src="images/object/GENTLE MONSTER/gm_11.png" alt="펜스 제작 2">
-                    <img loading="lazy" src="images/object/GENTLE MONSTER/gm_12.png" alt="펜스 제작 3">
+                    <img loading="lazy" decoding="async" src="images/projects/p03-verish-fabricwall/01.jpeg" alt="패브릭 월 제작 1">
+                    <img loading="lazy" decoding="async" src="images/projects/p03-verish-fabricwall/02.jpeg" alt="패브릭 월 제작 2">
+                    <img loading="lazy" decoding="async" src="images/projects/p03-verish-fabricwall/03.jpeg" alt="패브릭 월 제작 3">
+                    <img loading="lazy" decoding="async" src="images/projects/p03-verish-fabricwall/04.jpeg" alt="패브릭 월 제작 4">
+                    <img loading="lazy" decoding="async" src="images/projects/p03-verish-fabricwall/05.jpeg" alt="패브릭 월 제작 5">
+                    <img loading="lazy" decoding="async" src="images/projects/p03-verish-fabricwall/06.jpg" alt="패브릭 월 제작 6">
+                    <img loading="lazy" decoding="async" src="images/projects/p03-verish-fabricwall/07.jpeg" alt="패브릭 월 제작 7">
+                    <img loading="lazy" decoding="async" src="images/projects/p03-verish-fabricwall/08.jpeg" alt="패브릭 월 제작 8">
+                    <img loading="lazy" decoding="async" src="images/projects/p03-verish-fabricwall/09.jpeg" alt="패브릭 월 제작 9">
                 </div>
             </div>
-            <div class="gallery-item" id="gm-13">
-                <div class="gallery-header"><span>GENTLE MONSTER</span><span>주얼리 커튼 제작</span><span></span></div>
-                <div class="gallery-image-container"><img loading="lazy" src="images/object/GENTLE MONSTER/gm_13.png" alt="주얼리 커튼 제작"></div>
-            </div>
-            <div class="gallery-item" id="proj-01">
-                <div class="gallery-header"><span>TAMBURINS</span><span>스피커 집기제작</span><span></span></div>
-                <div class="gallery-image-container"><img loading="lazy" src="images/object/TAMBURINS/01.jpg" alt="스피커 집기제작"></div>
-            </div>
-            <div class="gallery-item" id="proj-02">
-                <div class="gallery-header"><span>TAMBURINS</span><span>집기제작</span><span></span></div>
-                <div class="gallery-image-container"><img loading="lazy" src="images/object/TAMBURINS/02.jpg" alt="집기제작"></div>
-            </div>
-            <div class="gallery-item" id="proj-05">
-                <div class="gallery-header"><span>TAMBURINS</span><span>대형 패브릭오브제 제작</span><span></span></div>
-                <div class="gallery-image-container"><img loading="lazy" src="images/object/TAMBURINS/05.jpg" alt="대형 패브릭오브제 제작"></div>
-            </div>
-            <div class="gallery-item" id="proj-11">
-                <div class="gallery-header"><span>TAMBURINS</span><span>패브릭 오브제 제작</span><span></span></div>
-                <div class="gallery-image-container"><img loading="lazy" src="images/object/TAMBURINS/11.jpg" alt="패브릭 오브제 제작"></div>
-            </div>
-            <div class="gallery-item" id="proj-06">
-                <div class="gallery-header"><span>TAMBURINS</span><span>대형 오브제제작</span><span></span></div>
+            <div class="gallery-item" id="p04">
+                <div class="gallery-header"><span>Verish</span><span>조경 디자인</span><span></span></div>
                 <div class="gallery-image-container">
-                    <img loading="lazy" src="images/object/TAMBURINS/06.jpg" alt="대형 오브제제작 1">
-                    <img loading="lazy" src="images/object/TAMBURINS/07.png" alt="대형 오브제제작 2">
+                    <img loading="lazy" decoding="async" src="images/projects/p04-verish-landscape/01.jpeg" alt="조경 디자인 1">
+                    <img loading="lazy" decoding="async" src="images/projects/p04-verish-landscape/02.jpeg" alt="조경 디자인 2">
+                    <img loading="lazy" decoding="async" src="images/projects/p04-verish-landscape/03.png" alt="조경 디자인 3">
+                    <img loading="lazy" decoding="async" src="images/projects/p04-verish-landscape/04.jpg" alt="조경 디자인 4">
+                    <img loading="lazy" decoding="async" src="images/projects/p04-verish-landscape/05.jpg" alt="조경 디자인 5">
+                    <img loading="lazy" decoding="async" src="images/projects/p04-verish-landscape/06.jpg" alt="조경 디자인 6">
+                    <img loading="lazy" decoding="async" src="images/projects/p04-verish-landscape/07.jpg" alt="조경 디자인 7">
+                    <img loading="lazy" decoding="async" src="images/projects/p04-verish-landscape/08.jpg" alt="조경 디자인 8">
+                    <img loading="lazy" decoding="async" src="images/projects/p04-verish-landscape/09.jpg" alt="조경 디자인 9">
+                    <img loading="lazy" decoding="async" src="images/projects/p04-verish-landscape/10.jpeg" alt="조경 디자인 10">
+                    <img loading="lazy" decoding="async" src="images/projects/p04-verish-landscape/11.jpeg" alt="조경 디자인 11">
+                    <img loading="lazy" decoding="async" src="images/projects/p04-verish-landscape/12.jpeg" alt="조경 디자인 12">
+                    <img loading="lazy" decoding="async" src="images/projects/p04-verish-landscape/13.jpeg" alt="조경 디자인 13">
+                    <img loading="lazy" decoding="async" src="images/projects/p04-verish-landscape/14.jpeg" alt="조경 디자인 14">
+                    <img loading="lazy" decoding="async" src="images/projects/p04-verish-landscape/15.jpeg" alt="조경 디자인 15">
+                    <img loading="lazy" decoding="async" src="images/projects/p04-verish-landscape/16.jpeg" alt="조경 디자인 16">
+                    <img loading="lazy" decoding="async" src="images/projects/p04-verish-landscape/17.jpeg" alt="조경 디자인 17">
+                    <img loading="lazy" decoding="async" src="images/projects/p04-verish-landscape/18.jpeg" alt="조경 디자인 18">
+                    <img loading="lazy" decoding="async" src="images/projects/p04-verish-landscape/19.jpeg" alt="조경 디자인 19">
                 </div>
             </div>
-            <div class="gallery-item" id="proj-08">
-                <div class="gallery-header"><span>TAMBURINS</span><span>오브제소품 제작</span><span></span></div>
+            <div class="gallery-item" id="p05">
+                <div class="gallery-header"><span>Verish</span><span>오브제 디자인 제작 (말)</span><span></span></div>
                 <div class="gallery-image-container">
-                    <img loading="lazy" src="images/object/TAMBURINS/08.jpg" alt="오브제소품 제작 1">
-                    <img loading="lazy" src="images/object/TAMBURINS/09.png" alt="오브제소품 제작 2">
-                    <img loading="lazy" src="images/object/TAMBURINS/10.png" alt="오브제소품 제작 3">
+                    <img loading="lazy" decoding="async" src="images/projects/p05-verish-object-horse/01.jpeg" alt="오브제 디자인 제작 (말) 1">
+                    <img loading="lazy" decoding="async" src="images/projects/p05-verish-object-horse/02.jpeg" alt="오브제 디자인 제작 (말) 2">
+                    <img loading="lazy" decoding="async" src="images/projects/p05-verish-object-horse/03.jpeg" alt="오브제 디자인 제작 (말) 3">
+                    <img loading="lazy" decoding="async" src="images/projects/p05-verish-object-horse/04.png" alt="오브제 디자인 제작 (말) 4">
+                    <img loading="lazy" decoding="async" src="images/projects/p05-verish-object-horse/05.jpeg" alt="오브제 디자인 제작 (말) 5">
+                    <img loading="lazy" decoding="async" src="images/projects/p05-verish-object-horse/06.jpeg" alt="오브제 디자인 제작 (말) 6">
+                    <img loading="lazy" decoding="async" src="images/projects/p05-verish-object-horse/07.jpg" alt="오브제 디자인 제작 (말) 7">
+                    <img loading="lazy" decoding="async" src="images/projects/p05-verish-object-horse/08.jpg" alt="오브제 디자인 제작 (말) 8">
+                    <img loading="lazy" decoding="async" src="images/projects/p05-verish-object-horse/09.jpg" alt="오브제 디자인 제작 (말) 9">
+                    <img loading="lazy" decoding="async" src="images/projects/p05-verish-object-horse/10.jpeg" alt="오브제 디자인 제작 (말) 10">
+                    <img loading="lazy" decoding="async" src="images/projects/p05-verish-object-horse/11.jpeg" alt="오브제 디자인 제작 (말) 11">
+                    <img loading="lazy" decoding="async" src="images/projects/p05-verish-object-horse/12.jpeg" alt="오브제 디자인 제작 (말) 12">
+                    <img loading="lazy" decoding="async" src="images/projects/p05-verish-object-horse/13.jpeg" alt="오브제 디자인 제작 (말) 13">
+                    <img loading="lazy" decoding="async" src="images/projects/p05-verish-object-horse/14.jpeg" alt="오브제 디자인 제작 (말) 14">
+                    <img loading="lazy" decoding="async" src="images/projects/p05-verish-object-horse/15.jpeg" alt="오브제 디자인 제작 (말) 15">
+                    <img loading="lazy" decoding="async" src="images/projects/p05-verish-object-horse/16.jpeg" alt="오브제 디자인 제작 (말) 16">
+                    <img loading="lazy" decoding="async" src="images/projects/p05-verish-object-horse/17.jpeg" alt="오브제 디자인 제작 (말) 17">
+                    <img loading="lazy" decoding="async" src="images/projects/p05-verish-object-horse/18.jpeg" alt="오브제 디자인 제작 (말) 18">
+                    <img loading="lazy" decoding="async" src="images/projects/p05-verish-object-horse/19.jpeg" alt="오브제 디자인 제작 (말) 19">
                 </div>
             </div>
-            <div class="gallery-item" id="proj-12">
-                <div class="gallery-header"><span>TAMBURINS</span><span>모래 오브제 제작</span><span></span></div>
+            <div class="gallery-item" id="p06">
+                <div class="gallery-header"><span>Verish</span><span>브리지원 챔피원쉽 기획 디자인 설계 제작</span><span></span></div>
                 <div class="gallery-image-container">
-                    <img loading="lazy" src="images/object/TAMBURINS/12.png" alt="모래 오브제 제작 1">
-                    <img loading="lazy" src="images/object/TAMBURINS/13.png" alt="모래 오브제 제작 2">
+                    <img loading="lazy" decoding="async" src="images/projects/p06-hyundai-bridgeone/01.jpg" alt="브리지원 챔피원쉽 기획 디자인 설계 제작 1">
+                    <img loading="lazy" decoding="async" src="images/projects/p06-hyundai-bridgeone/02.jpg" alt="브리지원 챔피원쉽 기획 디자인 설계 제작 2">
+                    <img loading="lazy" decoding="async" src="images/projects/p06-hyundai-bridgeone/03.jpg" alt="브리지원 챔피원쉽 기획 디자인 설계 제작 3">
                 </div>
             </div>
-            <div class="gallery-item" id="proj-14">
-                <div class="gallery-header"><span>TAMBURINS</span><span>콘크리트오브제조형물 제작</span><span></span></div>
+            <div class="gallery-item" id="p07">
+                <div class="gallery-header"><span>Verish</span><span>몽골몽골 놀이터 기획 디자인 설계 제작</span><span></span></div>
                 <div class="gallery-image-container">
-                    <img loading="lazy" src="images/object/TAMBURINS/16.png" alt="콘크리트오브제조형물 제작 0 (파사드)">
-                    <img loading="lazy" src="images/object/TAMBURINS/14.png" alt="콘크리트오브제조형물 제작 1">
-                    <img loading="lazy" src="images/object/TAMBURINS/15.png" alt="콘크리트오브제조형물 제작 2">
+                    <img loading="lazy" decoding="async" src="images/projects/p07-hyundai-mongol/01.jpg" alt="몽골몽골 놀이터 기획 디자인 설계 제작 1">
+                    <img loading="lazy" decoding="async" src="images/projects/p07-hyundai-mongol/02.jpg" alt="몽골몽골 놀이터 기획 디자인 설계 제작 2">
+                    <img loading="lazy" decoding="async" src="images/projects/p07-hyundai-mongol/03.jpg" alt="몽골몽골 놀이터 기획 디자인 설계 제작 3">
+                    <img loading="lazy" decoding="async" src="images/projects/p07-hyundai-mongol/04.jpg" alt="몽골몽골 놀이터 기획 디자인 설계 제작 4">
+                    <img loading="lazy" decoding="async" src="images/projects/p07-hyundai-mongol/05.jpg" alt="몽골몽골 놀이터 기획 디자인 설계 제작 5">
+                    <img loading="lazy" decoding="async" src="images/projects/p07-hyundai-mongol/06.jpg" alt="몽골몽골 놀이터 기획 디자인 설계 제작 6">
+                    <img loading="lazy" decoding="async" src="images/projects/p07-hyundai-mongol/07.jpg" alt="몽골몽골 놀이터 기획 디자인 설계 제작 7">
+                    <img loading="lazy" decoding="async" src="images/projects/p07-hyundai-mongol/08.png" alt="몽골몽골 놀이터 기획 디자인 설계 제작 8">
+                    <img loading="lazy" decoding="async" src="images/projects/p07-hyundai-mongol/09.png" alt="몽골몽골 놀이터 기획 디자인 설계 제작 9">
                 </div>
             </div>
-            <div class="gallery-item" id="proj-17">
-                <div class="gallery-header"><span>TAMBURINS</span><span>라탄 오브제 제작</span><span></span></div>
-                <div class="gallery-image-container"><img loading="lazy" src="images/object/TAMBURINS/17.png" alt="라탄 오브제 제작"></div>
-            </div>
-            <div class="gallery-item" id="proj-18">
-                <div class="gallery-header"><span>TAMBURINS</span><span>백화점오브제 메인집기 제작</span><span></span></div>
+            <div class="gallery-item" id="p08">
+                <div class="gallery-header"><span>Verish</span><span>트랙볼 제작</span><span></span></div>
                 <div class="gallery-image-container">
-                    <img loading="lazy" src="images/object/TAMBURINS/18.png" alt="백화점오브제 메인집기 1">
-                    <img loading="lazy" src="images/object/TAMBURINS/19.png" alt="백화점오브제 메인집기 2">
+                    <img loading="lazy" decoding="async" src="images/projects/p08-ganggyeong-trackball/01.jpg" alt="트랙볼 제작 1">
+                    <img loading="lazy" decoding="async" src="images/projects/p08-ganggyeong-trackball/02.jpg" alt="트랙볼 제작 2">
+                    <img loading="lazy" decoding="async" src="images/projects/p08-ganggyeong-trackball/03.png" alt="트랙볼 제작 3">
+                    <img loading="lazy" decoding="async" src="images/projects/p08-ganggyeong-trackball/04.png" alt="트랙볼 제작 4">
+                </div>
+            </div>
+            <div class="gallery-item" id="p09">
+                <div class="gallery-header"><span>Verish</span><span>패브릭 포토 월 제작</span><span></span></div>
+                <div class="gallery-image-container">
+                    <img loading="lazy" decoding="async" src="images/projects/p09-issumissu-fabricphoto/01.jpg" alt="패브릭 포토 월 제작 1">
+                    <img loading="lazy" decoding="async" src="images/projects/p09-issumissu-fabricphoto/02.jpg" alt="패브릭 포토 월 제작 2">
+                    <img loading="lazy" decoding="async" src="images/projects/p09-issumissu-fabricphoto/03.jpg" alt="패브릭 포토 월 제작 3">
+                    <img loading="lazy" decoding="async" src="images/projects/p09-issumissu-fabricphoto/04.jpg" alt="패브릭 포토 월 제작 4">
+                    <img loading="lazy" decoding="async" src="images/projects/p09-issumissu-fabricphoto/05.jpg" alt="패브릭 포토 월 제작 5">
+                </div>
+            </div>
+            <div class="gallery-item" id="p10">
+                <div class="gallery-header"><span>Verish</span><span>피규어 의류제작</span><span></span></div>
+                <div class="gallery-image-container">
+                    <img loading="lazy" decoding="async" src="images/projects/p10-tamburins-figure/01.jpg" alt="피규어 의류제작 1">
+                    <img loading="lazy" decoding="async" src="images/projects/p10-tamburins-figure/02.jpg" alt="피규어 의류제작 2">
+                    <img loading="lazy" decoding="async" src="images/projects/p10-tamburins-figure/03.jpg" alt="피규어 의류제작 3">
+                    <img loading="lazy" decoding="async" src="images/projects/p10-tamburins-figure/04.jpg" alt="피규어 의류제작 4">
+                    <img loading="lazy" decoding="async" src="images/projects/p10-tamburins-figure/05.jpg" alt="피규어 의류제작 5">
+                </div>
+            </div>
+            <div class="gallery-item" id="p11">
+                <div class="gallery-header"><span>Verish</span><span>피규어 의류제작</span><span></span></div>
+                <div class="gallery-image-container">
+                    <img loading="lazy" decoding="async" src="images/projects/p11-tamburins-figure2/01.jpg" alt="피규어 의류제작 1">
+                    <img loading="lazy" decoding="async" src="images/projects/p11-tamburins-figure2/02.jpg" alt="피규어 의류제작 2">
+                    <img loading="lazy" decoding="async" src="images/projects/p11-tamburins-figure2/03.jpg" alt="피규어 의류제작 3">
+                    <img loading="lazy" decoding="async" src="images/projects/p11-tamburins-figure2/04.jpg" alt="피규어 의류제작 4">
+                    <img loading="lazy" decoding="async" src="images/projects/p11-tamburins-figure2/05.jpeg" alt="피규어 의류제작 5">
+                    <img loading="lazy" decoding="async" src="images/projects/p11-tamburins-figure2/06.jpeg" alt="피규어 의류제작 6">
+                    <img loading="lazy" decoding="async" src="images/projects/p11-tamburins-figure2/07.jpeg" alt="피규어 의류제작 7">
+                    <img loading="lazy" decoding="async" src="images/projects/p11-tamburins-figure2/08.png" alt="피규어 의류제작 8">
+                </div>
+            </div>
+            <div class="gallery-item" id="p12">
+                <div class="gallery-header"><span>Verish</span><span>대형 피규어 의류제작</span><span></span></div>
+                <div class="gallery-image-container">
+                    <img loading="lazy" decoding="async" src="images/projects/p12-tamburins-bigfigure/01.jpg" alt="대형 피규어 의류제작 1">
+                    <img loading="lazy" decoding="async" src="images/projects/p12-tamburins-bigfigure/02.jpg" alt="대형 피규어 의류제작 2">
+                    <img loading="lazy" decoding="async" src="images/projects/p12-tamburins-bigfigure/03.jpg" alt="대형 피규어 의류제작 3">
                 </div>
             </div>
         </section>
